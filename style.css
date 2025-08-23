@@ -153,6 +153,7 @@ footer {
   border-radius: 0; /* square shape */
   border: 4px solid #ffffff;
   box-shadow: 0 0 25px rgba(0,0,0,0.7);
+  margin-left: -500px;
 }
 
 /* Consistent alignment for all section titles */
