@@ -1,0 +1,163 @@
+@font-face {
+  font-family: 'StretchPro';
+  src: url('assets/fonts/stretch-pro.basic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  line-height: 1.6;
+  color: #eee;                  /* light text */
+  background: #0d0d0d;          /* deep black background */
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #222;
+}
+
+header nav a {
+  color: #aaa;
+  margin: 0 15px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #fff;
+}
+
+/* Sections */
+section {
+  padding: 50px 0;
+  border-bottom: 1px solid #222;
+}
+
+h2 {
+  font-family: 'StretchPro', sans-serif;
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+
+/* Paragraphs */
+p {
+  color: #ccc;
+  max-width: 700px;
+  margin-bottom: 15px;
+}
+
+/* Showcase */
+#showcase p {
+  color: #bbb;
+}
+
+/* Testimonials */
+blockquote {
+  font-style: italic;
+  margin: 15px 0;
+  padding-left: 15px;
+  border-left: 3px solid #444;
+  color: #aaa;
+}
+
+/* Contact Links */
+#contact a {
+  color: #1db954;   /* nice green accent */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: #1ed760;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #777;
+  margin-top: 20px;
+  font-size: 0.9em;
+  border-top: 1px solid #222;
+}
+
+/* Profile Picture Styling */
+.profile-pic {
+  width: 180px;         /* size of the image */
+  height: 180px;
+  border-radius: 50%;   /* makes it a circle */
+  object-fit: cover;    /* crops nicely */
+  display: block;
+  margin: 20px auto;    /* centers the image */
+  border: 3px solid #1db954;  /* green accent border */
+}
+
+/* About Section Layout */
+.about-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.profile-pic {
+  width: 250px;       /* adjust size as needed */
+  height: auto;       /* keeps original aspect ratio */
+  border: 3px solid #1db954; /* green border */
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* About Section Split Layout */
+.about-split {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-text {
+  flex: 1; /* take available space */
+}
+
+.about-photo img {
+  width: 350px;   /* adjust size */
+  height: auto;   /* keep ratio */
+  object-fit: cover;
+}
+
+
+.profile-pic {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 0; /* square shape */
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 25px rgba(0,0,0,0.7);
+}
+
+/* Consistent alignment for all section titles */
+section h2 {
+  text-align: left;
+  margin-left: 0;
+  padding-left: 10px;  /* small left buffer, adjust as needed */
+}
