@@ -1,34 +1,54 @@
+/*======================
+    Font Faces
+=======================*/
 @font-face {
-  font-family: 'StretchPro';
-  src: url('assets/fonts/stretch-pro.basic.otf') format('opentype');
+  font-family: 'Helvetica';
+  src: url('assets/fonts/Helvetica.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'HelveticaBold';
+  src: url('assets/fonts/Helvetica-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
-/* Basic Reset */
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('assets/fonts/BebasNeue-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*======================
+    Reset & Body
+=======================*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Body Styling */
 body {
+  font-family: 'Helvetica', Arial, sans-serif;
   line-height: 1.6;
-  color: #eee;                  /* light text */
-  background: #0d0d0d;          /* deep black background */
+  color: #eee;
+  background: #0d0d0d;
   padding: 0 20px;
 }
 
-/* Header */
+/*======================
+    Header
+=======================*/
 header {
   background: #111;
   color: #fff;
   padding: 20px;
   text-align: center;
   border-bottom: 2px solid #222;
+  font-family: 'BebasNeue', Arial, sans-serif; /* Header font */
 }
 
 header nav a {
@@ -36,98 +56,101 @@ header nav a {
   margin: 0 15px;
   text-decoration: none;
   transition: color 0.3s;
+  font-family: 'BebasNeue', Arial, sans-serif;
 }
 
 header nav a:hover {
   color: #fff;
 }
 
-/* Sections */
-section {
-  padding: 50px 0;
-  border-bottom: 1px solid #222;
+/*======================
+    Headings
+=======================*/
+h1, h2, h3 {
+  font-family: 'BebasNeue', Arial, sans-serif;
+  color: #fff;
 }
 
 h2 {
-  font-family: 'StretchPro', sans-serif;
   font-size: 2.8rem;
-  color: #fff;
   margin-bottom: 20px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding-left: 10px;
 }
 
+h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 12px;
+  background-color: #37ff41;
+  z-index: -1;
+}
 
 /* Paragraphs */
 p {
+  font-family: 'Helvetica', Arial, sans-serif;
   color: #ccc;
   max-width: 700px;
   margin-bottom: 15px;
 }
 
-/* Showcase */
-#showcase p {
-  color: #bbb;
-}
-
-/* Testimonials */
-blockquote {
-  font-style: italic;
-  margin: 15px 0;
-  padding-left: 15px;
-  border-left: 3px solid #444;
-  color: #aaa;
-}
-
-/* Contact Links */
-#contact a {
-  color: #1db954;   /* nice green accent */
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-#contact a:hover {
-  color: #1ed760;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #111;
-  color: #777;
-  margin-top: 20px;
-  font-size: 0.9em;
-  border-top: 1px solid #222;
-}
-
-/* Profile Picture Styling */
-.profile-pic {
-  width: 180px;         /* size of the image */
-  height: 180px;
-  border-radius: 50%;   /* makes it a circle */
-  object-fit: cover;    /* crops nicely */
-  display: block;
-  margin: 20px auto;    /* centers the image */
-  border: 3px solid #1db954;  /* green accent border */
-}
-
-/* About Section Layout */
-.about-layout {
+/*======================
+    Hero Section
+=======================*/
+#hero {
+  width: 100%;
+  min-height: 80vh;
+  background: linear-gradient(to top, #0d0d0d 0%, #242424 100%);
+  color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.profile-pic {
-  width: 250px;       /* adjust size as needed */
-  height: auto;       /* keeps original aspect ratio */
-  border: 3px solid #1db954; /* green border */
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  font-family: 'BebasNeue', Arial, sans-serif;
 }
 
-/* About Section Split Layout */
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: #ccc;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1db954;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.hero-btn:hover {
+  background-color: #1ed760;
+}
+
+/*======================
+    About Section
+=======================*/
 .about-split {
   display: flex;
   justify-content: space-between;
@@ -136,29 +159,233 @@ footer {
 }
 
 .about-text {
-  flex: 1; /* take available space */
+  flex: 1;
+}
+
+.about-text p {
+  font-family: 'Helvetica', Arial, sans-serif;
 }
 
 .about-photo img {
-  width: 350px;   /* adjust size */
-  height: auto;   /* keep ratio */
+  width: 350px;
+  height: auto;
   object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  border-radius: 10px;
 }
 
-
+/*======================
+    Profile Pic
+=======================*/
 .profile-pic {
   width: 100%;
   max-width: 500px;
   height: auto;
-  border-radius: 0; /* square shape */
+  border-radius: 0;
   border: 4px solid #ffffff;
   box-shadow: 0 0 25px rgba(0,0,0,0.7);
-  margin-left: -500px;
 }
 
-/* Consistent alignment for all section titles */
-section h2 {
-  text-align: left;
-  margin-left: 0;
-  padding-left: 10px;  /* small left buffer, adjust as needed */
+/*======================
+    Experience Section
+=======================*/
+#experience ul {
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: #ccc;
+  max-width: 800px;
+  line-height: 1.8;
+  margin-left: 20px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/*======================
+    Showcase Grid
+=======================*/
+.showcase-grid {
+  column-count: 3;
+  column-gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.showcase-item {
+  break-inside: avoid;
+  margin-bottom: 20px;
+  background: #111;
+  border: 2px solid #fefffe;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.showcase-item.landscape {
+  aspect-ratio: 16 / 9;
+}
+
+.showcase-item.portrait {
+  aspect-ratio: 9 / 16;
+}
+
+.showcase-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.showcase-item p {
+  font-family: 'Helvetica', Arial, sans-serif;
+  color: #ccc;
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 1rem;
+}
+
+.showcase-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/*======================
+    Overview / Testimonials
+=======================*/
+#Overview {
+  position: relative;
+  padding: 50px 0;
+  background: #111;
+  text-align: center;
+}
+
+#Overview h2 {
+  font-family: 'BebasNeue', Arial, sans-serif;
+  margin-bottom: 30px;
+}
+
+.testimonial-full img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+/*======================
+    Contact Section
+=======================*/
+#contact {
+  background: #111;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-family: 'BebasNeue', Arial, sans-serif;
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+#contact h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  height: 12px;
+  background-color: #1db954;
+  z-index: -1;
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #1a1a1a;
+  padding: 12px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #eee;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.contact-item img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.contact-item span {
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 1.1rem;
+}
+
+.contact-item:hover {
+  background: #ffffff;
+  color: #111;
+  transform: translateY(-3px);
+}
+
+/*======================
+    Footer
+=======================*/
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #777;
+  margin-top: 20px;
+  font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 0.9em;
+  border-top: 1px solid #222;
+}
+
+/*======================
+    Responsive
+=======================*/
+@media (max-width: 1024px) {
+  .showcase-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase-grid {
+    column-count: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .about-split {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-photo img {
+    width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase-grid {
+    column-count: 1;
+  }
 }
