@@ -7,6 +7,15 @@
   font-weight: normal;
   font-style: normal;
 }
+/*======================
+    Reset & Body
+=======================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 @font-face {
   font-family: 'HelveticaBold';
@@ -22,22 +31,103 @@
   font-style: normal;
 }
 
+
+
 /*======================
-    Reset & Body
+    Animated Background
 =======================*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+/*======================
+    Animated Background for Entire Page
+=======================*/
+body, #hero, #about, #experience, #showcase, #Overview, #contact {
+  background: linear-gradient(270deg, #1c003d, #2b0031, #3e003b, #000000, #26001f);
+  background-size: 1000% 1000%;
+  animation: gradientMove 30s ease infinite;
+  color: #eee; /* default text color */
+  position: relative;
+
 }
 
-body {
-  font-family: 'Helvetica', Arial, sans-serif;
-  line-height: 1.6;
-  color: #eee;
-  background: #0d0d0d;
-  padding: 0 20px;
+/* Optional: subtle overlay for contrast */
+body::after,
+#hero::after,
+#about::after,
+#experience::after,
+#showcase::after,
+#Overview::after,
+#contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3); /* dark overlay for readability */
+  pointer-events: none;
+  z-index: 0;
 }
+
+/* Ensure content sits above overlay */
+body > *, #hero > *, #about > *, #experience > *, #showcase > *, #Overview > *, #contact > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keyframes for gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Optional: gentle glow on headings */
+h1, h2, h3 {
+  text-shadow: 0 0 8px #A3FF46, 0 0 15px #00ffff, 0 0 25px #A3FF46;
+}
+
+
+/* Animation keyframes */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/*======================
+    Hero Section Glow
+=======================*/
+#hero {
+  position: relative;
+  z-index: 1;
+}
+
+#hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(163,255,70,0.15) 0%, transparent 60%);
+  z-index: 0;
+  animation: glowMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes glowMove {
+  0% { transform: translate(0%, 0%) rotate(0deg); }
+  50% { transform: translate(5%, 5%) rotate(180deg); }
+  100% { transform: translate(0%, 0%) rotate(360deg); }
+}
+
+/*======================
+    Headings Glow
+=======================*/
+h1, h2, h3 {
+  text-shadow: 0 0 8px rgba(163,255,70,0.4), 0 0 20px rgba(163,255,70,0.2);
+}
+
 
 /*======================
     Header
@@ -64,40 +154,61 @@ header nav a:hover {
 }
 
 /*======================
-    Headings
+        Headings
 =======================*/
+
+/* General heading styles */
 h1, h2, h3 {
   font-family: 'BebasNeue', Arial, sans-serif;
   color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6), 0 0 12px #A3FF46;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+/* Individual font sizes */
+h1 {
+  font-size: 4.5rem;       /* main large heading */
 }
 
 h2 {
+  position: relative;       /* required for ::before positioning */
+  display: inline-block;    /* matches the underline to text width */
+  font-family: 'BebasNeue', Arial, sans-serif;
   font-size: 2.8rem;
-  margin-bottom: 20px;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  position: relative;
-  display: inline-block;
-  padding-left: 10px;
+  margin-bottom: 20px; /* needed for underline width to match text */
 }
 
+h3 {
+  font-size: 2rem;         /* subheadings */
+}
+
+/* Hover effects */
+h1:hover, h2:hover, h3:hover {
+  letter-spacing: 4px;
+  transform: scale(1.05);
+}
+
+/* Gradient underline for h2 */
 h2::before {
-  content: '';
+content: '';
   position: absolute;
   left: 0;
-  bottom: 5px;
-  width: 100%;
-  height: 12px;
-  background-color: #37ff41;
+  bottom: -5px;
+  width: 100%;              /* now matches the text width */
+  height: 8px;
+  background: linear-gradient(90deg, #000000, #A3FF46, #ffffff);
+  background-size: 200% 100%;
+  animation: gradient-slide 3s infinite linear;
   z-index: -1;
 }
 
-/* Paragraphs */
-p {
-  font-family: 'Helvetica', Arial, sans-serif;
-  color: #ccc;
-  max-width: 700px;
-  margin-bottom: 15px;
+/* Keyframes for gradient animation */
+@keyframes gradient-slide {
+  0% { background-position: 0% 0%; }
+  100% { background-position: -200% 0%; }
 }
 
 /*======================
@@ -106,7 +217,6 @@ p {
 #hero {
   width: 100%;
   min-height: 80vh;
-  background: linear-gradient(to top, #0d0d0d 0%, #242424 100%);
   color: #fff;
   display: flex;
   align-items: center;
@@ -159,20 +269,33 @@ p {
 }
 
 .about-text {
-  flex: 1;
+  flex: 3;
 }
 
 .about-text p {
   font-family: 'Helvetica', Arial, sans-serif;
+  font-size: 1.6rem; /* slightly larger */
+  line-height: 1.8;
+   letter-spacing: -1.5px  /* optional: improves readability */
 }
 
 .about-photo img {
-  width: 350px;
+  width: 100%;
   height: auto;
   object-fit: cover;
   border: 3px solid #ffffff;
   box-shadow: 0 0 15px rgba(0,0,0,0.6);
   border-radius: 10px;
+}
+.highlight {
+  font-weight: bold;
+  font-size: 1.9rem; /* make it bigger than normal paragraph */
+  color: #fff; /* optional: change color to make it pop */
+}
+.emphasize {
+  font-weight: bold;
+  font-size: 1.4rem; /* slightly bigger than regular experience text */
+  color: #fff;       /* optional: make it stand out more */
 }
 
 /*======================
@@ -198,7 +321,9 @@ p {
   margin-left: 20px;
   padding-left: 20px;
   list-style-type: disc;
+  font-size: 1.3rem; /* increase text size */
 }
+
 
 /*======================
     Showcase Grid
@@ -254,7 +379,6 @@ p {
 #Overview {
   position: relative;
   padding: 50px 0;
-  background: #111;
   text-align: center;
 }
 
@@ -276,7 +400,6 @@ p {
     Contact Section
 =======================*/
 #contact {
-  background: #111;
   padding: 50px 20px;
   text-align: center;
 }
